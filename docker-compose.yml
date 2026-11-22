@@ -1,0 +1,43 @@
+# A separate project name keeps this stack off the older `pawmatch_pgdata` volume.
+name: pawmatch-stack
+
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: pawmatch
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+    ports:
+      - "127.0.0.1:${DB_PORT:?DB_PORT is required}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d pawmatch"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  api:
+    build: .
+    environment:
+      # The password is placed in a URL, so URL-encode any reserved characters in it.
+      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}@db:5432/pawmatch
+      PORT: ${PORT:?PORT is required}
+    ports:
+      - "127.0.0.1:${PORT:?PORT is required}:${PORT:?PORT is required}"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import os, urllib.request as u; u.urlopen(f'http://127.0.0.1:{os.environ[\"PORT\"]}/health', timeout=2)"
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+volumes:
+  pgdata:

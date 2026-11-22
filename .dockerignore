@@ -1,0 +1,7 @@
+# Allowlist: nothing enters the build context unless named here.
+*
+!pawmatch/
+!pyproject.toml
+!uv.lock
+**/__pycache__/
+**/*.py[cod]
