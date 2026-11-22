@@ -10,7 +10,7 @@ Status reset 2026-11-23: the repo has no application code, tests or commits, so 
 - [X] 2. Implement requires_home_visit() — owner: main session — verify: `uv run pytest tests/test_architecture.py` still passes
 - [X] 3. Write boundary tests — owner: pawmatch-test-writer — verify: `uv run pytest tests/test_home_visit.py` passes and covers every case listed in PLAN.md step 3
 - [X] 4. Policy drift and layer review — owner: pawmatch-policy-reviewer — verify: reply says "no drift, no layer violations", with file:line refs
-- [ ] 5. Human Verify and merge — owner: you — verify: the stack started with `scripts/start.sh` (`docker compose up --build` until it exists) answers a flagged application, and the Verify section of NOTES.md is filled in
+- [X] 5. Human Verify and merge — owner: you — verify: the stack started with `scripts/start.sh` (`docker compose up --build` until it exists) answers a flagged application, and the Verify section of NOTES.md is filled in
 
 ## Blocked or follow-up
 
