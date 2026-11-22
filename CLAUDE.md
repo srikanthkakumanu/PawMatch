@@ -9,6 +9,8 @@
 Python 3.15 / FastAPI REST API, uv, Pydantic modules. Postgres for adoption applications.
 Domain-Driven Design in four layers under pawmatch/. Dependencies point inward only:
 
+Note: This project is implemented using Agentic Engineering Approach.
+
 - domain/          entities and screening rules: AdoptionApplication, requires_home_visit.
   No imports from other layers, and no framework or database driver.
 - application/     use cases (SubmitApplication, GetDecision) and the ApplicationRepository port.

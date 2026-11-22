@@ -21,6 +21,6 @@ Status reset 2026-11-23: the repo has no application code, tests or commits, so 
 - [X] rag_query limit raised from 400 to 20,000 characters, and any cut is now marked — takes effect when the MCP server restarts
 - [X] Add a `.gitignore` covering `CLAUDE.local.md`, `.env` and `.DS_Store` before the first commit
 - [X] Species is a fixed list of dog, cat or other, so "puppy", breed names and typos can no longer skip the 40 lb rule
-- [ ] Decide what to do with the 10 applications in the older `pawmatch_pgdata` volume, which the new stack does not use — owner: adoptions manager or delegate
+- [X] Older `pawmatch_pgdata` volume: its 10 applications appear to be test data, so they are not migrated and the volume is kept as an archive
 - [X] Approve PLAN-start-stop.md, then add `scripts/start.sh` and `scripts/stop.sh` — verify: the PROJECT.md acceptance check passes
 - [X] Update `kennel_capacity.py` to print safe intake and warn from it, per the kennel skill's SKILL.md

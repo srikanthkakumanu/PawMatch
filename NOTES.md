@@ -42,7 +42,7 @@ Unverified as of 2026-11-23: the earlier reports below have no matching code, te
 
 ## Open questions
 
-- What should happen to the 10 applications in the older `pawmatch_pgdata` volume? — owner: adoptions manager
+None.
 
 Answered 2026-11-23 by the adoptions manager or their delegate:
 
@@ -50,6 +50,7 @@ Answered 2026-11-23 by the adoptions manager or their delegate:
 - How is a prior return identified? By the applicant's answer, recorded as a yes/no field on the application.
 - Does the 40 lb rule apply when any one dog in a multi-dog application is over 40 lbs? Yes, any one dog.
 - Should species be a fixed list? Yes: `dog`, `cat` or `other`. Puppies and all breeds are entered as `dog`, and anything else is rejected, because free text let a 45 lb "puppy" or "German Shepherd" skip the 40 lb rule.
+- What should happen to the 10 applications in the older `pawmatch_pgdata` volume? Do not migrate them, and keep the volume as an untouched archive. Decided by the main session at the owner's request. All 10 match test-data patterns in name, address and phone and were created on one day (2026-11-21), so copying them would mix sample records into the new database. Deleting the volume is not part of this decision.
 
 ## Verify (human checkpoint)
 
