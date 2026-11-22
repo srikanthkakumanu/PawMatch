@@ -1,0 +1,36 @@
+[project]
+name = "pawmatch"
+version = "0.1.0"
+description = "Adoption application recording and screening for shelter staff."
+requires-python = ">=3.15,<3.16"
+dependencies = [
+    "fastapi>=0.165.0",
+    "psycopg[binary]>=3.3.9",
+    "pydantic>=2.14.4",
+    "uvicorn>=0.54.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py315"
+line-length = 100
+extend-exclude = [".claude", "tools"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ANN"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["ANN401"]
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.16.2",
+    "pytest>=9.2.0",
+    "ruff>=0.17.6",
+]

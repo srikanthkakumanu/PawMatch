@@ -1,0 +1,11 @@
+# Deployment definition only. Deploying is a human step after Verify.
+services:
+  - type: web
+    name: pawmatch-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeploy: false
+    envVars:
+      - key: DATABASE_URL
+        sync: false
